@@ -1,0 +1,30 @@
+:root {
+  --spacing: 0.5rem;
+}
+
+.tsd-panel > table {
+  margin: var(--spacing) 0;
+  border-collapse: collapse;
+}
+
+.tsd-panel td,
+.tsd-panel th {
+  padding: var(--spacing);
+  border: 1px solid var(--dark-code-background);
+  text-align: center;
+}
+
+img[src="./assets/logo.jpg"] {
+  width: 100%;
+}
+
+hr {
+  margin: var(--spacing) 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tsd-panel td,
+  .tsd-panel th {
+    border-color: var(--light-code-background);
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:jsdoc/recommended",
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["prettier", "@typescript-eslint", "import"],
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "root": true,
+  "rules": {
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      {
+        "prefer": "type-imports"
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": "error",
+    "import/order": [
+      "error",
+      {
+        "alphabetize": {
+          "caseInsensitive": true,
+          "order": "asc"
+        },
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          ["sibling", "parent", "index"],
+          "unknown",
+          "type"
+        ],
+        "newlines-between": "always"
+      }
+    ],
+    "prettier/prettier": "error",
+    "jsdoc/require-param-type": "off",
+    "jsdoc/require-returns-type": "off"
+
+  },
+  "settings": {
+    "jsdoc": {
+      "ignoreInternal": true,
+      "ignorePrivate": true
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "name": "google-docs-hast",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Convert a Google Doc JSON representation to an HTML abstract syntax tree.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "homepage": "https://github.com/googleworkspace/google-docs-hast",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/googleworkspace/google-docs-hast.git"
+  },
+  "scripts": {
+    "build": "tsc --emitDeclarationOnly && esbuild src/index.ts --format=esm --outfile=dist/index.js --sourcemap --bundle",
+    "docs": "typedoc --options typedoc.cjs && cp assets/logo.jpg docs/assets/logo.jpg",
+    "format": "eslint . --fix",
+    "lint": "eslint .",
+    "prepare": "npm run build",
+    "test": "vitest"
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
+  "keywords": [
+    "google",
+    "docs",
+    "hast",
+    "html",
+    "unified"
+  ],
+  "author": {
+    "name": "Justin Poehnelt",
+    "email": "jpoehnelt@google.com"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "github-slugger": "^1.4.0",
+    "hast-util-to-string": "^2.0.0",
+    "hastscript": "^7.0.2"
+  },
+  "devDependencies": {
+    "@googleapis/docs": "^0.4.2",
+    "@types/node": "^17.0.42",
+    "@types/prettier": "^2.6.3",
+    "@typescript-eslint/eslint-plugin": "^5.40.0",
+    "@typescript-eslint/parser": "^5.40.0",
+    "c8": "^7.12.0",
+    "csstype": "^3.1.1",
+    "esbuild": "^0.14.36",
+    "eslint": "^8.25.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsdoc": "^39.3.13",
+    "eslint-plugin-prettier": "^4.2.1",
+    "googleapis": "^103.0.0",
+    "hast-util-to-mdast": "^8.3.1",
+    "prettier": "^2.6.2",
+    "rehype-stringify": "^9.0.3",
+    "remark-stringify": "^10.0.2",
+    "typedoc": "^0.23.17",
+    "typescript": "^4.8.4",
+    "unified": "^10.1.2",
+    "vitest": "^0.14.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

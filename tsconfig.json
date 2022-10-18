@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+      "outDir": "./dist",
+      "declaration": true,
+      "target": "ESNEXT",
+      "esModuleInterop": true,
+      "moduleResolution": "node"
+    },
+    "include": ["src/**/*", "e2e/**/*"],
+    "exclude": ["node_modules"]
+  }
