@@ -1,6 +1,6 @@
 ![](./assets/logo.jpg)
 
-[![npm](https://img.shields.io/npm/v/google-docs-hast)](https://www.npmjs.com/package/google-docs-hast)
+[![npm](https://img.shields.io/npm/v/@googleworkspace/google-docs-hast)](https://www.npmjs.com/package/@googleworkspace/google-docs-hast)
 [![Test](https://github.com/googleworkspace/google-docs-hast/actions/workflows/test.yml/badge.svg)](https://github.com/googleworkspace/google-docs-hast/actions/workflows/test.yml)
 ![Release](https://github.com/googleworkspace/google-docs-hast/workflows/Release/badge.svg)
 [![Docs](https://img.shields.io/badge/documentation-api-brightgreen)](https://googleworkspace.github.io/google-docs-hast/)
@@ -16,13 +16,13 @@ Converts the JSON representation of a Google Docs document into an [HTML abstrac
 Install using NPM or similar.
 
 ```sh
-npm i google-docs-hast
+npm i @googleworkspace/google-docs-hast
 ```
 
 ## Usage
 
 ```js
-import { hast } from "google-docs-hast";
+import { hast } from "@googleworkspace/google-docs-hast";
 
 // Retrieve document from API, https://developers.google.com/docs/api
 const doc = ...;
