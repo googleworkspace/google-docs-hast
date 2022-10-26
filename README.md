@@ -1,7 +1,7 @@
 ![](./assets/logo.jpg)
 
 [![npm](https://img.shields.io/npm/v/google-docs-hast)](https://www.npmjs.com/package/google-docs-hast)
-![Build](https://github.com/googleworkspace/google-docs-hast/workflows/Build/badge.svg)
+[![Test](https://github.com/googleworkspace/google-docs-hast/actions/workflows/test.yml/badge.svg)](https://github.com/googleworkspace/google-docs-hast/actions/workflows/test.yml)
 ![Release](https://github.com/googleworkspace/google-docs-hast/workflows/Release/badge.svg)
 [![Docs](https://img.shields.io/badge/documentation-api-brightgreen)](https://googleworkspace.github.io/google-docs-hast/)
 
