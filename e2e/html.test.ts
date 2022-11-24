@@ -22,7 +22,7 @@ import rehypeStringify from "rehype-stringify";
 import { unified } from "unified";
 import { describe, expect, test } from "vitest";
 
-import { hast } from "../src";
+import { toHast } from "../src";
 import { CASES, FIXTURES_DIR } from "./cases";
 
 import type { Root } from "hast";
@@ -42,14 +42,14 @@ describe.each(CASES)("%name", ({ name }) => {
   );
 
   test("html", () => {
-    const output = prettier.format(html(hast(doc)), { parser: "html" });
+    const output = prettier.format(html(toHast(doc)), { parser: "html" });
     fs.mkdirSync(path.join(__dirname, "__html__"), { recursive: true });
     fs.writeFileSync(path.join(__dirname, "__html__", `${name}.html`), output);
     expect(output).toMatchSnapshot();
   });
 
   test("html without styles", () => {
-    const output = prettier.format(html(hast(doc, { styles: false })), {
+    const output = prettier.format(html(toHast(doc, { styles: false })), {
       parser: "html",
     });
     fs.mkdirSync(path.join(__dirname, "__html__"), { recursive: true });

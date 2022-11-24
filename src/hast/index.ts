@@ -58,7 +58,7 @@ export interface Context {
  * @see {@link https://developers.google.com/docs/api/reference/rest/v1/documents#Document | Google Docs API}.
  * @see {@link https://github.com/syntax-tree/hast | HTML abstract syntax tree (HAST)}
  */
-export const hast = (
+export const toHast = (
   doc: docs_v1.Schema$Document,
   options: HastOptions = {}
 ): Root => {
@@ -80,6 +80,11 @@ export const hast = (
 
   return tree;
 };
+
+/**
+ * @deprecated Use {@link toHast} instead.
+ */
+export const hast = toHast;
 
 export const transform = (
   content: docs_v1.Schema$StructuralElement[],
