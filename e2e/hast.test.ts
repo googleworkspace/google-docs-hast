@@ -19,7 +19,7 @@ import path from "path";
 
 import { describe, expect, test } from "vitest";
 
-import { hast } from "../src";
+import { toHast } from "../src";
 import { FIXTURES_DIR, CASES } from "./cases";
 
 expect.addSnapshotSerializer({
@@ -37,10 +37,10 @@ describe.each(CASES)("%name", ({ name }) => {
   );
 
   test("hast", () => {
-    expect(hast(doc)).toMatchSnapshot();
+    expect(toHast(doc)).toMatchSnapshot();
   });
 
   test("hast without styles", () => {
-    expect(hast(doc, { styles: false })).toMatchSnapshot();
+    expect(toHast(doc, { styles: false })).toMatchSnapshot();
   });
 });

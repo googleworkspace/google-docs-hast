@@ -22,13 +22,13 @@ npm i @googleworkspace/google-docs-hast
 ## Usage
 
 ```js
-import { hast } from "@googleworkspace/google-docs-hast";
+import { toHast } from "@googleworkspace/google-docs-hast";
 
 // Retrieve document from API, https://developers.google.com/docs/api
 const doc = ...;
 
 // Convert the document to an HTML AST.
-const tree = hast(doc);
+const tree = toHast(doc);
 ```
 
 To get the serialized representation of the HTML AST, use the [rehype-stringify](https://www.npmjs.com/package/rehype-stringify) package.
@@ -100,7 +100,7 @@ becomes:
 This can be disabled with `{ prettyHeaderIds: false}`.
 
 ```js
-const tree = hast(doc, { prettyHeaderIds: false });
+const tree = toHast(doc, { prettyHeaderIds: false });
 ```
 
 ## Unsupported Features

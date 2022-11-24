@@ -14,4 +14,4 @@
  * limitations under the License.
  */
 
-export { hast, HastOptions } from "./hast";
+export { hast, toHast, HastOptions } from "./hast";
