@@ -26,6 +26,8 @@ jobs:
         with:
           node-version: '14'
       - uses: actions/checkout@v2
+        with: 
+          token: ${{ secrets.GOOGLEWORKSPACE_BOT_TOKEN }}
       - uses: actions/cache@v3
         with:
           path: ~/.npm
@@ -49,5 +51,5 @@ jobs:
             semantic-release-npm-deprecate
             conventional-changelog-conventionalcommits
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GOOGLEWORKSPACE_BOT_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_WOMBAT_TOKEN }}
