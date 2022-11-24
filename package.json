@@ -4,7 +4,7 @@
   "type": "module",
   "description": "Convert a Google Doc JSON representation to an HTML abstract syntax tree.",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/src/index.d.ts",
   "homepage": "https://github.com/googleworkspace/google-docs-hast",
   "repository": {
     "type": "git",
