@@ -42,7 +42,7 @@ export const listElement = (
     class: `nesting-level-${nestingLevel}`,
   };
 
-  if (["GLYPH_TYPE_UNSPECIFIED", "NONE"].includes(glyphType)) {
+  if ([undefined, "GLYPH_TYPE_UNSPECIFIED", "NONE"].includes(glyphType)) {
     return h("ul", attributes);
   }
 
