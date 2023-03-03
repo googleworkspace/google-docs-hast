@@ -122,16 +122,21 @@ const structuralElementToElement = (
 
     if (isListItem(el)) {
       if (isListItem(last)) {
+        // traverse from top level `parent` to last rendered element somewhere deep inside
+        let level: Element = parent;
+        for (let i = 0; i < 2 * listItemLevel(el); i++) {
+          level = getElementLastChild(level);
+        }
         // nested list item
         if (listItemLevel(el) > listItemLevel(last)) {
           const list = listElement(el, context);
           list.children.push(renderedElement);
-          parent.children.push(list);
+          level.children.push(list);
           return null;
         }
         // item on existing list
         else {
-          parent.children.push(renderedElement);
+          getElementLastChild(level).children.push(renderedElement);
           return null;
         }
       }
@@ -155,4 +160,7 @@ const structuralElementToElement = (
       .filter((k) => !k.match(/.*Index$/))
       .pop()}`
   );
+};
+const getElementLastChild = (el: Element): Element => {
+  return el.children.filter((e) => e.type == "element").at(-1) as Element;
 };
