@@ -121,26 +121,35 @@ const structuralElementToElement = (
 
   if (paragraph) {
     const last = elements[index - 1];
-    const parent = acc[acc.length - 1];
+    const parent = acc.at(-1); //[acc.length - 1];
 
     const renderedElement: Element = paragraphToElement(paragraph, context);
 
     if (isListItem(el)) {
-      if (isListItem(last) && listItemBulletId(el) == listItemBulletId(last)) {
-        // traverse from top level `parent` to last rendered element somewhere deep inside
+      const elListItemLevel = listItemLevel(el);
+      if (
+        isListItem(last) &&
+        (listItemBulletId(el) == listItemBulletId(last) || elListItemLevel > 0)
+      ) {
+        const lastListItemLevel = listItemLevel(last);
         let level: Element = parent;
-        for (let i = 2; i < 2 * listItemLevel(el) - 1; i++) {
-          level = getElementLastChild(level);
-        }
         // nested list item
-        if (listItemLevel(el) > listItemLevel(last)) {
+        if (elListItemLevel > lastListItemLevel) {
+          // traverse from top level `parent` to last rendered element somewhere deep inside
+          for (let i = 0; i < 2 * lastListItemLevel; i++) {
+            level = getElementLastChild(level);
+          }
           const list = listElement(el, context);
           list.children.push(renderedElement);
-          level.children.push(list);
+          getElementLastChild(level).children.push(list);
           return null;
         }
         // item on existing list
         else {
+          // traverse from top level `parent` to last rendered element somewhere deep inside
+          for (let i = 0; i < 2 * elListItemLevel; i++) {
+            level = getElementLastChild(level);
+          }
           level.children.push(renderedElement);
           return null;
         }
@@ -166,6 +175,8 @@ const structuralElementToElement = (
       .pop()}`
   );
 };
+const isElement = (element: Element): element is Element =>
+  element.type === "element";
 const getElementLastChild = (el: Element): Element => {
-  return el.children.filter((e) => e.type == "element").at(-1) as Element;
+  return el.children.filter(isElement).at(-1);
 };
