@@ -27,6 +27,11 @@ export const isListItem = (el: docs_v1.Schema$StructuralElement): boolean => {
 export const listItemLevel = (el: docs_v1.Schema$StructuralElement): number => {
   return el.paragraph.bullet.nestingLevel ?? 0;
 };
+export const listItemBulletId = (
+  el: docs_v1.Schema$StructuralElement
+): string => {
+  return el.paragraph.bullet.listId;
+};
 
 export const listElement = (
   el: docs_v1.Schema$StructuralElement,

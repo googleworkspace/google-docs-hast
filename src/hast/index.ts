@@ -16,7 +16,12 @@
 
 import { h } from "hastscript";
 
-import { listElement, isListItem, listItemLevel } from "./lists";
+import {
+  listElement,
+  isListItem,
+  listItemLevel,
+  listItemBulletId,
+} from "./lists";
 import { paragraphToElement } from "./paragraph";
 import { replaceHeaderIdsWithSlug } from "./postProcessing/prettyHeaderIds";
 import { removeStyles } from "./postProcessing/removeStyles";
@@ -121,10 +126,10 @@ const structuralElementToElement = (
     const renderedElement: Element = paragraphToElement(paragraph, context);
 
     if (isListItem(el)) {
-      if (isListItem(last)) {
+      if (isListItem(last) && listItemBulletId(el) == listItemBulletId(last)) {
         // traverse from top level `parent` to last rendered element somewhere deep inside
         let level: Element = parent;
-        for (let i = 0; i < 2 * listItemLevel(el); i++) {
+        for (let i = 2; i < 2 * listItemLevel(el) - 1; i++) {
           level = getElementLastChild(level);
         }
         // nested list item
@@ -136,7 +141,7 @@ const structuralElementToElement = (
         }
         // item on existing list
         else {
-          getElementLastChild(level).children.push(renderedElement);
+          level.children.push(renderedElement);
           return null;
         }
       }

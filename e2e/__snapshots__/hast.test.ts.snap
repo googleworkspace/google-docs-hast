@@ -717,7 +717,7 @@ exports[`%name { name: 'complete.json' } > hast 1`] = `
     },
     {
       "type": "element",
-      "tagName": "ol",
+      "tagName": "ul",
       "properties": {
         "className": [
           "nesting-level-1"
@@ -737,12 +737,23 @@ exports[`%name { name: 'complete.json' } > hast 1`] = `
         },
         {
           "type": "element",
-          "tagName": "li",
-          "properties": {},
+          "tagName": "ul",
+          "properties": {
+            "className": [
+              "nesting-level-2"
+            ]
+          },
           "children": [
             {
-              "type": "text",
-              "value": "Nested unordered list bullet"
+              "type": "element",
+              "tagName": "li",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Nested unordered list bullet"
+                }
+              ]
             }
           ]
         },
@@ -756,7 +767,19 @@ exports[`%name { name: 'complete.json' } > hast 1`] = `
               "value": "Another list bullet"
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "ol",
+      "properties": {
+        "className": [
+          "nesting-level-1"
+        ],
+        "list-style-type": "decimal"
+      },
+      "children": [
         {
           "type": "element",
           "tagName": "li",
@@ -770,12 +793,24 @@ exports[`%name { name: 'complete.json' } > hast 1`] = `
         },
         {
           "type": "element",
-          "tagName": "li",
-          "properties": {},
+          "tagName": "ol",
+          "properties": {
+            "className": [
+              "nesting-level-2"
+            ],
+            "list-style-type": "lower-alpha"
+          },
           "children": [
             {
-              "type": "text",
-              "value": "Nested ordered list bullet"
+              "type": "element",
+              "tagName": "li",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Nested ordered list bullet"
+                }
+              ]
             }
           ]
         },
@@ -2936,7 +2971,7 @@ exports[`%name { name: 'complete.json' } > hast without styles 1`] = `
     },
     {
       "type": "element",
-      "tagName": "ol",
+      "tagName": "ul",
       "properties": {
         "className": [
           "nesting-level-1"
@@ -2956,12 +2991,23 @@ exports[`%name { name: 'complete.json' } > hast without styles 1`] = `
         },
         {
           "type": "element",
-          "tagName": "li",
-          "properties": {},
+          "tagName": "ul",
+          "properties": {
+            "className": [
+              "nesting-level-2"
+            ]
+          },
           "children": [
             {
-              "type": "text",
-              "value": "Nested unordered list bullet"
+              "type": "element",
+              "tagName": "li",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Nested unordered list bullet"
+                }
+              ]
             }
           ]
         },
@@ -2975,7 +3021,19 @@ exports[`%name { name: 'complete.json' } > hast without styles 1`] = `
               "value": "Another list bullet"
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "ol",
+      "properties": {
+        "className": [
+          "nesting-level-1"
+        ],
+        "list-style-type": "decimal"
+      },
+      "children": [
         {
           "type": "element",
           "tagName": "li",
@@ -2989,12 +3047,24 @@ exports[`%name { name: 'complete.json' } > hast without styles 1`] = `
         },
         {
           "type": "element",
-          "tagName": "li",
-          "properties": {},
+          "tagName": "ol",
+          "properties": {
+            "className": [
+              "nesting-level-2"
+            ],
+            "list-style-type": "lower-alpha"
+          },
           "children": [
             {
-              "type": "text",
-              "value": "Nested ordered list bullet"
+              "type": "element",
+              "tagName": "li",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Nested ordered list bullet"
+                }
+              ]
             }
           ]
         },
