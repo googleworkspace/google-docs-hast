@@ -135,10 +135,8 @@ const structuralElementToElement = (
         let level: Element = parent;
         // nested list item
         if (elListItemLevel > lastListItemLevel) {
-          // traverse from top level `parent` to last rendered element somewhere deep inside
-          for (let i = 0; i < 2 * lastListItemLevel; i++) {
-            level = getElementLastChild(level);
-          }
+          // traverse from top level `parent` to `el` level - 1 deep
+          level = traverseToListLevel(parent, elListItemLevel - 1);
           const list = listElement(el, context);
           list.children.push(renderedElement);
           getElementLastChild(level).children.push(list);
@@ -146,10 +144,8 @@ const structuralElementToElement = (
         }
         // item on existing list
         else {
-          // traverse from top level `parent` to last rendered element somewhere deep inside
-          for (let i = 0; i < 2 * elListItemLevel; i++) {
-            level = getElementLastChild(level);
-          }
+          // traverse from top level `parent` to `el` level - 1 deep
+          level = traverseToListLevel(parent, elListItemLevel);
           level.children.push(renderedElement);
           return null;
         }
@@ -175,8 +171,29 @@ const structuralElementToElement = (
       .pop()}`
   );
 };
-const isElement = (element: Element): element is Element =>
-  element.type === "element";
-const getElementLastChild = (el: Element): Element => {
-  return el.children.filter(isElement).at(-1);
+const isElement = (e: Element): e is Element => e.type === "element";
+const getElementLastChild = (e: Element): Element => {
+  return e.children.filter(isElement).at(-1);
+};
+
+// traverse from top level of list element `e` to `l` level filling the hole in between
+const traverseToListLevel = (e: Element, l: number): Element => {
+  let e_new_level = e;
+  // since list contains 2 level itself we need to double our steps...
+  for (let i = 0; i < 2 * l; i++) {
+    const e_try_level = getElementLastChild(e_new_level);
+    if (e_try_level && e_try_level.type === "element") {
+      // ok to dive deeper
+      e_new_level = e_try_level;
+    } else {
+      // build empty levels to connect a hole between `last` and `el`
+      let e_empty: Element;
+      e_new_level.tagName == "li"
+        ? (e_empty = h("ul", h("li")))
+        : (e_empty = h("li"));
+      e_new_level.children.push(e_empty);
+      e_new_level = e_empty;
+    }
+  }
+  return e_new_level;
 };
