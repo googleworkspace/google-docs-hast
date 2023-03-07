@@ -16,7 +16,12 @@
 
 import { h } from "hastscript";
 
-import { listElement, isListItem, listItemLevel } from "./lists";
+import {
+  listElement,
+  isListItem,
+  listItemLevel,
+  listItemBulletId,
+} from "./lists";
 import { paragraphToElement } from "./paragraph";
 import { replaceHeaderIdsWithSlug } from "./postProcessing/prettyHeaderIds";
 import { removeStyles } from "./postProcessing/removeStyles";
@@ -116,22 +121,32 @@ const structuralElementToElement = (
 
   if (paragraph) {
     const last = elements[index - 1];
-    const parent = acc[acc.length - 1];
+    const parent = acc.at(-1); //[acc.length - 1];
 
     const renderedElement: Element = paragraphToElement(paragraph, context);
 
     if (isListItem(el)) {
-      if (isListItem(last)) {
+      const elListItemLevel = listItemLevel(el);
+      if (
+        isListItem(last) &&
+        (listItemBulletId(el) == listItemBulletId(last) || elListItemLevel > 0)
+      ) {
+        const lastListItemLevel = listItemLevel(last);
+        let level: Element = parent;
         // nested list item
-        if (listItemLevel(el) > listItemLevel(last)) {
+        if (elListItemLevel > lastListItemLevel) {
+          // traverse from top level `parent` to `el` level - 1 deep
+          level = traverseToListLevel(parent, elListItemLevel - 1);
           const list = listElement(el, context);
           list.children.push(renderedElement);
-          parent.children.push(list);
+          getElementLastChild(level).children.push(list);
           return null;
         }
         // item on existing list
         else {
-          parent.children.push(renderedElement);
+          // traverse from top level `parent` to `el` level - 1 deep
+          level = traverseToListLevel(parent, elListItemLevel);
+          level.children.push(renderedElement);
           return null;
         }
       }
@@ -155,4 +170,30 @@ const structuralElementToElement = (
       .filter((k) => !k.match(/.*Index$/))
       .pop()}`
   );
+};
+const isElement = (e: Element): e is Element => e.type === "element";
+const getElementLastChild = (e: Element): Element => {
+  return e.children.filter(isElement).at(-1);
+};
+
+// traverse from top level of list element `e` to `l` level filling the hole in between
+const traverseToListLevel = (e: Element, l: number): Element => {
+  let e_new_level = e;
+  // since list contains 2 level itself we need to double our steps...
+  for (let i = 0; i < 2 * l; i++) {
+    const e_try_level = getElementLastChild(e_new_level);
+    if (e_try_level && e_try_level.type === "element") {
+      // ok to dive deeper
+      e_new_level = e_try_level;
+    } else {
+      // build empty levels to connect a hole between `last` and `el`
+      let e_empty: Element;
+      e_new_level.tagName == "li"
+        ? (e_empty = h("ul", h("li")))
+        : (e_empty = h("li"));
+      e_new_level.children.push(e_empty);
+      e_new_level = e_empty;
+    }
+  }
+  return e_new_level;
 };

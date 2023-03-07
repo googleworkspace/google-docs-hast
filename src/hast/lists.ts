@@ -25,7 +25,12 @@ export const isListItem = (el: docs_v1.Schema$StructuralElement): boolean => {
 };
 
 export const listItemLevel = (el: docs_v1.Schema$StructuralElement): number => {
-  return el.paragraph.bullet.nestingLevel ?? 1;
+  return el.paragraph.bullet.nestingLevel ?? 0;
+};
+export const listItemBulletId = (
+  el: docs_v1.Schema$StructuralElement
+): string => {
+  return el.paragraph.bullet.listId;
 };
 
 export const listElement = (
@@ -34,15 +39,15 @@ export const listElement = (
 ): Element => {
   const { listId } = el.paragraph.bullet;
   let { nestingLevel } = el.paragraph.bullet;
-  nestingLevel = nestingLevel ?? 1;
+  nestingLevel = nestingLevel ?? 0;
   const { glyphType, startNumber } =
-    doc.lists[listId].listProperties.nestingLevels[nestingLevel - 1];
+    doc.lists[listId].listProperties.nestingLevels[nestingLevel];
 
   const attributes = {
-    class: `nesting-level-${nestingLevel}`,
+    class: `nesting-level-${nestingLevel + 1}`,
   };
 
-  if (["GLYPH_TYPE_UNSPECIFIED", "NONE"].includes(glyphType)) {
+  if ([undefined, "GLYPH_TYPE_UNSPECIFIED", "NONE"].includes(glyphType)) {
     return h("ul", attributes);
   }
 

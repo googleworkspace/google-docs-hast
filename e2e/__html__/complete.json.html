@@ -89,12 +89,22 @@
   Bordered paragraph
 </p>
 <h1 style="text-align: justify" class="heading-1" id="lists">Lists</h1>
-<ol class="nesting-level-1">
-  <li>Unordered list bullet</li>
-  <li>Nested unordered list bullet</li>
+<ul class="nesting-level-1">
+  <li>
+    Unordered list bullet
+    <ul class="nesting-level-2">
+      <li>Nested unordered list bullet</li>
+    </ul>
+  </li>
   <li>Another list bullet</li>
-  <li>Ordered listed bullet</li>
-  <li>Nested ordered list bullet</li>
+</ul>
+<ol class="nesting-level-1" list-style-type="decimal">
+  <li>
+    Ordered listed bullet
+    <ol class="nesting-level-2" list-style-type="lower-alpha">
+      <li>Nested ordered list bullet</li>
+    </ol>
+  </li>
   <li>Another list bullet</li>
 </ol>
 <h1 style="text-align: justify" class="heading-1" id="tables">Tables</h1>
