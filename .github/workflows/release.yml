@@ -46,7 +46,6 @@ jobs:
             @semantic-release/git
             @semantic-release/github
             @semantic-release/npm
-            semantic-release-npm-deprecate
             conventional-changelog-conventionalcommits
         env:
           GH_TOKEN: ${{ secrets.GOOGLEWORKSPACE_BOT_TOKEN }}

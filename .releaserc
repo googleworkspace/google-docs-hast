@@ -44,19 +44,7 @@
       ],
       "@semantic-release/github",
       "@semantic-release/npm",
-      "@semantic-release/git",
-      [
-        "semantic-release-npm-deprecate",
-        {
-          "deprecations":
-            [
-              {
-                "version": "< ${nextRelease.version.split('.')[0]}",
-                "message": "Please use ^${nextRelease.version.split('.')[0]}.0.0.",
-              },
-            ],
-        },
-      ],
+      "@semantic-release/git",      
     ],
   options: { debug: true },
   branches:
