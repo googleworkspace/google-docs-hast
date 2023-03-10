@@ -26,7 +26,7 @@ export const transformPerson = (
   wrapStyle(
     h(
       "a",
-      { mailto: person.personProperties.email },
+      { href: `mailto:${person.personProperties.email}` },
       person.personProperties.name ?? person.personProperties.email
     ),
     person.textStyle

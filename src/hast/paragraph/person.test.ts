@@ -39,7 +39,7 @@ describe("person", () => {
           },
         ],
         "properties": {
-          "mailto": "john@example.com",
+          "href": "mailto:john@example.com",
         },
         "tagName": "a",
         "type": "element",
@@ -62,7 +62,7 @@ describe("person", () => {
           },
         ],
         "properties": {
-          "mailto": "john@example.com",
+          "href": "mailto:john@example.com",
         },
         "tagName": "a",
         "type": "element",
