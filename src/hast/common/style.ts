@@ -116,9 +116,7 @@ const isParagraphBorder = (
 };
 
 export const rgbColor = ({
-  color: {
-    rgbColor: { red = 0, green = 0, blue = 0 },
-  },
+  color: { rgbColor: { red = 0, green = 0, blue = 0 } = {} } = {},
 }: docs_v1.Schema$OptionalColor): string => {
   return `rgb(${red * 255}, ${green * 255}, ${blue * 255})`;
 };
