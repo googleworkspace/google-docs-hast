@@ -37,7 +37,7 @@ jobs:
           npm ci
           npm test
       - name: Release
-        uses: cycjimmy/semantic-release-action@4
+        uses: cycjimmy/semantic-release-action@v4
         with:
           extra_plugins: |
             @semantic-release/commit-analyzer
