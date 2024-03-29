@@ -65,7 +65,7 @@ export const paragraphStyleToAttributes = ({
   }
 
   if (indentEnd?.magnitude != undefined) {
-    style.paddingRight = `${indentStart.magnitude}${indentStart.unit}`;
+    style.paddingRight = `${indentEnd.magnitude}${indentEnd.unit}`;
   }
 
   if (indentFirstLine?.magnitude != undefined) {
