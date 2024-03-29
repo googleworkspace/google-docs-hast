@@ -1,6 +1,6 @@
 {
   "name": "@googleworkspace/google-docs-hast",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "type": "module",
   "description": "Convert a Google Doc JSON representation to an HTML abstract syntax tree.",
   "main": "dist/index.js",
