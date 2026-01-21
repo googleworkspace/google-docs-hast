@@ -57,7 +57,7 @@ export const replaceHeaderIdsWithSlug = (root: Root): Root => {
 
       //update links with slug
       for (const link of links[node.properties.id] ?? []) {
-        link.properties.src = `#${slug}`;
+        link.properties.href = `#${slug}`;
       }
 
       node.properties.id = slug;
