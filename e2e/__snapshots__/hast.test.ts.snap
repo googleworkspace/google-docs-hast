@@ -1,6 +1,6 @@
-// Vitest Snapshot v1
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`%name { name: 'complete.json' } > hast 1`] = `
+exports[`%name > hast 1`] = `
 {
   "type": "root",
   "children": [
@@ -2324,7 +2324,7 @@ exports[`%name { name: 'complete.json' } > hast 1`] = `
 }
 `;
 
-exports[`%name { name: 'complete.json' } > hast without styles 1`] = `
+exports[`%name > hast without styles 1`] = `
 {
   "type": "root",
   "children": [

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { borders, textAlign, serializeStyle } from "./style";
+import { borders, textAlign, serializeStyle } from "./style.js";
 
 import type { docs_v1 } from "@googleapis/docs";
 import type { Properties } from "csstype";

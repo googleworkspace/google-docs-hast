@@ -21,11 +21,11 @@ import {
   isListItem,
   listItemLevel,
   listItemBulletId,
-} from "./lists";
-import { paragraphToElement } from "./paragraph";
-import { replaceHeaderIdsWithSlug } from "./postProcessing/prettyHeaderIds";
-import { removeStyles } from "./postProcessing/removeStyles";
-import { tableToElement } from "./table";
+} from "./lists.js";
+import { paragraphToElement } from "./paragraph/index.js";
+import { replaceHeaderIdsWithSlug } from "./postProcessing/prettyHeaderIds.js";
+import { removeStyles } from "./postProcessing/removeStyles.js";
+import { tableToElement } from "./table/index.js";
 
 import type { docs_v1 } from "@googleapis/docs";
 import type { Element, Root } from "hast";
@@ -56,7 +56,6 @@ export interface Context {
 
 /**
  * Generate an HTML AST from a Google Docs document in JSON form.
- *
  * @param doc JSON representation of a Google Docs document.
  * @param options Options for the transformation.
  * @returns The HTML abstract syntax tree.

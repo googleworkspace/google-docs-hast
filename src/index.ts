@@ -14,4 +14,4 @@
  * limitations under the License.
  */
 
-export { hast, toHast, HastOptions } from "./hast";
+export { hast, toHast, HastOptions } from "./hast/index.js";

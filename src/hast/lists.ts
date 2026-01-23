@@ -16,7 +16,7 @@
 
 import { h } from "hastscript";
 
-import type { Context } from ".";
+import type { Context } from "./index.js";
 import type { docs_v1 } from "@googleapis/docs";
 import type { Element } from "hast";
 

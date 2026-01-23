@@ -16,7 +16,7 @@
 
 import { describe, expect, test } from "vitest";
 
-import { wrapStyle } from "./wrapStyle";
+import { wrapStyle } from "./wrapStyle.js";
 
 describe("textStyle", () => {
   test("bold", () => {

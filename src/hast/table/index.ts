@@ -16,10 +16,10 @@
 
 import { h } from "hastscript";
 
-import { transform } from "..";
-import { borders, rgbColor, serializeStyle } from "../common/style";
+import { transform } from "../index.js";
+import { borders, rgbColor, serializeStyle } from "../common/style.js";
 
-import type { Context } from "..";
+import type { Context } from "../index.js";
 import type { docs_v1 } from "@googleapis/docs";
 import type { Element } from "hast";
 
