@@ -36,8 +36,8 @@
   "license": "Apache-2.0",
   "dependencies": {
     "github-slugger": "^1.4.0",
-    "hast-util-to-string": "^2.0.0",
-    "hastscript": "^7.0.2"
+    "hast-util-to-string": "^3.0.1",
+    "hastscript": "^9.0.1"
   },
   "devDependencies": {
     "@googleapis/docs": "^0.4.2",
