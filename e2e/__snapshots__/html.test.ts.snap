@@ -1,6 +1,6 @@
-// Vitest Snapshot v1
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`%name { name: 'complete.json' } > html 1`] = `
+exports[`%name > html 1`] = `
 <h1 class="heading-1" id="named-styles">Named styles</h1>
 <h1 class="title" id="title">Title</h1>
 <p class="subtitle" id="h.l7ftux4f1oct">Subtitle</p>
@@ -496,7 +496,7 @@ exports[`%name { name: 'complete.json' } > html 1`] = `
 
 `;
 
-exports[`%name { name: 'complete.json' } > html without styles 1`] = `
+exports[`%name > html without styles 1`] = `
 <h1 class="heading-1" id="named-styles">Named styles</h1>
 <h1 class="title" id="title">Title</h1>
 <p class="subtitle" id="h.l7ftux4f1oct">Subtitle</p>

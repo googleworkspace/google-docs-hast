@@ -19,7 +19,6 @@ import type { Root } from "hast";
 
 /**
  * Replace all header tag IDs with the slug version and update internal links.
- *
  * @param root The HAST tree to process.
  * @returns The processed HAST tree.
  */

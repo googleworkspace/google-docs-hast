@@ -19,8 +19,8 @@ import path from "path";
 
 import { describe, expect, test } from "vitest";
 
-import { toHast } from "../src";
-import { FIXTURES_DIR, CASES } from "./cases";
+import { toHast } from "../src/index.js";
+import { FIXTURES_DIR, CASES } from "./cases.js";
 
 expect.addSnapshotSerializer({
   serialize(val) {

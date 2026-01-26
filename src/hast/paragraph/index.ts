@@ -16,14 +16,14 @@
 
 import { h } from "hastscript";
 
-import { paragraphStyleToAttributes } from "../common/paragraphStyle";
-import { namedStyleTypeToTag } from "../common/style";
-import { transformInlineObject } from "./inlineObject";
-import { transformPerson } from "./person";
-import { transformRichLink } from "./richLink";
-import { transformTextRun } from "./textRun";
+import { paragraphStyleToAttributes } from "../common/paragraphStyle.js";
+import { namedStyleTypeToTag } from "../common/style.js";
+import { transformInlineObject } from "./inlineObject.js";
+import { transformPerson } from "./person.js";
+import { transformRichLink } from "./richLink.js";
+import { transformTextRun } from "./textRun.js";
 
-import type { Context } from "..";
+import type { Context } from "../index.js";
 import type { docs_v1 } from "@googleapis/docs";
 import type { Element, Text } from "hast";
 

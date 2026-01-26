@@ -22,8 +22,8 @@ import rehypeStringify from "rehype-stringify";
 import { unified } from "unified";
 import { describe, expect, test } from "vitest";
 
-import { toHast } from "../src";
-import { CASES, FIXTURES_DIR } from "./cases";
+import { toHast } from "../src/index.js";
+import { CASES, FIXTURES_DIR } from "./cases.js";
 
 import type { Root } from "hast";
 
@@ -41,15 +41,15 @@ describe.each(CASES)("%name", ({ name }) => {
     fs.readFileSync(path.join(FIXTURES_DIR, name), "utf8")
   );
 
-  test("html", () => {
-    const output = prettier.format(html(toHast(doc)), { parser: "html" });
+  test("html", async () => {
+    const output = await prettier.format(html(toHast(doc)), { parser: "html" });
     fs.mkdirSync(path.join(__dirname, "__html__"), { recursive: true });
     fs.writeFileSync(path.join(__dirname, "__html__", `${name}.html`), output);
     expect(output).toMatchSnapshot();
   });
 
-  test("html without styles", () => {
-    const output = prettier.format(html(toHast(doc, { styles: false })), {
+  test("html without styles", async () => {
+    const output = await prettier.format(html(toHast(doc, { styles: false })), {
       parser: "html",
     });
     fs.mkdirSync(path.join(__dirname, "__html__"), { recursive: true });

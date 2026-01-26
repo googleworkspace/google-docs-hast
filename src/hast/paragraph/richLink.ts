@@ -16,7 +16,7 @@
 
 import { h } from "hastscript";
 
-import { wrapStyle } from "../common/wrapStyle";
+import { wrapStyle } from "../common/wrapStyle.js";
 
 import type { docs_v1 } from "@googleapis/docs";
 

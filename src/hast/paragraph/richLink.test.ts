@@ -16,7 +16,7 @@
 
 import { describe, expect, test } from "vitest";
 
-import { transformRichLink } from "./richLink";
+import { transformRichLink } from "./richLink.js";
 
 import type { docs_v1 } from "@googleapis/docs";
 

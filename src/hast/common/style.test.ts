@@ -16,7 +16,7 @@
 
 import { describe, expect, test } from "vitest";
 
-import { borderToCss } from "./style";
+import { borderToCss } from "./style.js";
 
 import type { docs_v1 } from "@googleapis/docs";
 

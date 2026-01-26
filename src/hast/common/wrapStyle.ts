@@ -16,7 +16,7 @@
 
 import { h } from "hastscript";
 
-import { rgbColor, serializeStyle } from "../common/style";
+import { rgbColor, serializeStyle } from "../common/style.js";
 
 import type { docs_v1 } from "@googleapis/docs";
 import type { Element, Text } from "hast";

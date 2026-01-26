@@ -16,7 +16,7 @@
 
 import { describe, expect, test } from "vitest";
 
-import { transformPerson } from "./person";
+import { transformPerson } from "./person.js";
 
 import type { docs_v1 } from "@googleapis/docs";
 
