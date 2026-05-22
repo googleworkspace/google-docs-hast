@@ -40,7 +40,7 @@
     "hastscript": "^7.0.2"
   },
   "devDependencies": {
-    "@googleapis/docs": "^0.4.2",
+    "@googleapis/docs": "^9.3.0",
     "@types/node": "^17.0.42",
     "@types/prettier": "^2.6.3",
     "@typescript-eslint/eslint-plugin": "^5.40.0",
@@ -53,7 +53,7 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsdoc": "^39.3.13",
     "eslint-plugin-prettier": "^4.2.1",
-    "googleapis": "^103.0.0",
+    "googleapis": "^172.0.0",
     "hast-util-to-mdast": "^8.3.1",
     "prettier": "^2.6.2",
     "rehype-stringify": "^9.0.3",
